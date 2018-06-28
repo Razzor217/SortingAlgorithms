@@ -11,11 +11,11 @@ import sorting.MergeSort;
 public class Main {
 
 	public static void main(String[] args) {
-		int n = 10000;
+		int n = 2000;
 		int[] a = new int[n];
 		List<Integer> list = new LinkedList<Integer>();
 		for (int i=0; i<n; i++) {
-			int elem = (int)(Math.random()*100+1);
+			int elem = (int)(Math.random()*50+1);
 			a[i] = elem;
 			list.add(elem);
 		}

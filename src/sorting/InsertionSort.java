@@ -28,10 +28,10 @@ public class InsertionSort extends Algorithm {
     public String toString() {
         return getName() 
             + ":\nArray Length: "
-            + a.length
+            + String.format("%23d", a.length)
             + "\nElapsed Time: "
-            + getElapsedTime()
-            + "ns\n----------------------------------------\n";
+            + String.format("%,23d", getElapsedTime())
+            + " ns\n----------------------------------------\n";
     }
     
     /*

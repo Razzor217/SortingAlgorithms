@@ -33,10 +33,10 @@ public class BeadSort extends Algorithm {
     public String toString() {
         return getName() 
             + ":\nArray Length: " 
-            + a.length 
-            + "\nEllapsed Time: " 
-            + getElapsedTime() 
-            + "ns\n----------------------------------------\n";
+            + String.format("%23d", a.length) 
+            + "\nElapsed Time: " 
+            + String.format("%,23d", getElapsedTime())
+            + " ns\n----------------------------------------\n";
     }
 
     /*

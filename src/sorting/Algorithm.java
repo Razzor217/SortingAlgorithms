@@ -1,5 +1,8 @@
 package sorting;
 
+import java.text.NumberFormat;
+import java.util.Locale;
+
 /*
  * Basic abstract class for an algorithm which supports execution, 
  * calculation of elapsed time and string representation of 
