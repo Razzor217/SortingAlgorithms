@@ -30,8 +30,8 @@ public class InsertionSort extends Algorithm {
             + ":\nArray Length: "
             + a.length
             + "\nElapsed Time: "
-            + elapsedTime()
-            + "\n----------------------------------------";
+            + getElapsedTime()
+            + "ns\n----------------------------------------\n";
     }
     
     /*
@@ -64,7 +64,7 @@ public class InsertionSort extends Algorithm {
         for (int i=0; i<a.length; i++) {
             int e = a[i];
             int j=i;
-            while (j>i && a[j-1]>e) {
+            while (j>0 && a[j-1]>e) {
                 a[j] = a[j-1];
                 j--;
             }

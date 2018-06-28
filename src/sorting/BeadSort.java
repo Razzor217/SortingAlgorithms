@@ -35,8 +35,8 @@ public class BeadSort extends Algorithm {
             + ":\nArray Length: " 
             + a.length 
             + "\nEllapsed Time: " 
-            + elapsedTime() 
-            + "ns\n----------------------------------------";
+            + getElapsedTime() 
+            + "ns\n----------------------------------------\n";
     }
 
     /*
