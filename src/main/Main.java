@@ -10,10 +10,14 @@ import sorting.MergeSort;
 
 public class Main {
 
+    // TODO: Add data set to sort
 	public static void main(String[] args) {
-		int n = 2000;
+		
+	    int n = 200000;
+		
 		int[] a = new int[n];
 		List<Integer> list = new LinkedList<Integer>();
+		
 		for (int i=0; i<n; i++) {
 			int elem = (int)(Math.random()*50+1);
 			a[i] = elem;
@@ -23,6 +27,7 @@ public class Main {
 		Algorithm[] b = {new InsertionSort(a), 
 	        new MergeSort(list),
 	        new BeadSort(a)};
+		
 		System.out.println("Sum of all elements in array: " + sum(a));
 		System.out.println("Algorithms in ascending order of");
 		System.out.println("execution time:");

@@ -40,7 +40,7 @@ public class MergeSort extends Algorithm {
     
     @Override
     public void execute() {
-        mergeSort(b);
+        mergeSort(a);
     }
 
     @Override
