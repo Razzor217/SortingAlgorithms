@@ -1,6 +1,8 @@
-package sorting;
+package main;
 
-import java.util.Arrays;
+import sorting.Algorithm;
+import sorting.BeadSort;
+import sorting.InsertionSort;
 
 public class Main {
 
