@@ -1,5 +1,8 @@
 package main;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import sorting.Algorithm;
 import sorting.BeadSort;
 import sorting.InsertionSort;
@@ -9,8 +12,11 @@ public class Main {
 	public static void main(String[] args) {
 		int n = 10000;
 		int[] a = new int[n];
+		ArrayList<Integer> list = new ArrayList<Integer>();
 		for (int i=0; i<n; i++) {
-			a[i] = (int)(Math.random()*100+1);
+			int elem = (int)(Math.random()*10000+1);
+			a[i] = elem;
+			list.add(elem);
 		}
 		
 		Algorithm[] b = {new InsertionSort(a), new BeadSort(a)};

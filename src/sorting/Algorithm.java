@@ -11,7 +11,8 @@ public abstract class Algorithm implements Comparable<Algorithm>{
 	private long elapsedTime;
 	
 	public Algorithm() {
-	
+	    name = null;
+	    elapsedTime = 0;
 	}
 	
 	public String getName() {
