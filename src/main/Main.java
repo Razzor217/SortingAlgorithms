@@ -1,25 +1,28 @@
 package main;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 
 import sorting.Algorithm;
 import sorting.BeadSort;
 import sorting.InsertionSort;
+import sorting.MergeSort;
 
 public class Main {
 
 	public static void main(String[] args) {
 		int n = 10000;
 		int[] a = new int[n];
-		ArrayList<Integer> list = new ArrayList<Integer>();
+		List<Integer> list = new LinkedList<Integer>();
 		for (int i=0; i<n; i++) {
-			int elem = (int)(Math.random()*10000+1);
+			int elem = (int)(Math.random()*100+1);
 			a[i] = elem;
 			list.add(elem);
 		}
 		
-		Algorithm[] b = {new InsertionSort(a), new BeadSort(a)};
+		Algorithm[] b = {new InsertionSort(a), 
+	        new MergeSort(list),
+	        new BeadSort(a)};
 		System.out.println("Sum of all elements in array: " + sum(a));
 		System.out.println("Algorithms in ascending order of");
 		System.out.println("execution time:");
