@@ -2,6 +2,7 @@ package sorting;
 
 /*
  * Implements Bead Sort on a simple array of positive integers.
+ * The algorithm is explained below.
  */
 public class BeadSort extends Algorithm {
 
@@ -10,6 +11,9 @@ public class BeadSort extends Algorithm {
     public BeadSort(int[] a) {
         super();
         setName("Bead Sort");
+        if (a == null)
+            throw new NullPointerException(
+                "Error, cannot sort null array");
         this.a = new int[a.length];
         for (int i = 0; i < a.length; i++) {
             if (a[i] > 0)
@@ -31,8 +35,8 @@ public class BeadSort extends Algorithm {
             + ":\nArray Length: " 
             + a.length 
             + "\nEllapsed Time: " 
-            + ellapsedTime() 
-            + "ns\n";
+            + elapsedTime() 
+            + "ns\n----------------------------------------";
     }
 
     /*
@@ -54,8 +58,6 @@ public class BeadSort extends Algorithm {
      *     {4,1,6,2,3,1,4}  {1,1,2,3,4,4,6}
      */
     public static int[] beadSort(int[] a) {
-        if (a == null)
-            throw new NullPointerException("Error, cannot initialize from null array");
         int n = a.length;
         int max = 0;
 
@@ -95,7 +97,7 @@ public class BeadSort extends Algorithm {
                 ;
             a[i] = j;
         }
-
+        
         return a;
     }
 
