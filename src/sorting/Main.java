@@ -11,7 +11,7 @@ public class Main {
 		
 		System.out.println("Bead sort:");
 		long startTime = System.nanoTime();
-		Algorithm.beadSort(a);
+		//Algorithm.beadSort(a);
 		long endTime = System.nanoTime();
 		
 		System.out.println("Array length: " + n);
