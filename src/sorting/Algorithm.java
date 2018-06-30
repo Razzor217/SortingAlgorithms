@@ -1,8 +1,5 @@
 package sorting;
 
-import java.text.NumberFormat;
-import java.util.Locale;
-
 /*
  * Basic abstract class for an algorithm which supports execution, 
  * calculation of elapsed time and string representation of 
@@ -12,10 +9,12 @@ public abstract class Algorithm implements Comparable<Algorithm>{
 	
 	private String name;
 	private long elapsedTime;
+	private int variants;
 	
 	public Algorithm() {
 	    name = null;
 	    elapsedTime = 0;
+	    variants = 1;
 	}
 	
 	public String getName() {
@@ -34,11 +33,22 @@ public abstract class Algorithm implements Comparable<Algorithm>{
 	    elapsedTime = time;
 	}
 	
-	public abstract void execute();
+	public int getVariants() {
+	    return variants;
+	}
 	
-	public long elapsedTime() {
+	protected void setVariants(int variants) {
+	    this.variants = variants;
+	}
+	
+	/*
+	 * Change the used variant of the algorithm
+	 */
+	public abstract void execute(int k);
+	
+	public long elapsedTime(int k) {
 		long startTime = System.nanoTime();
-		execute();
+		execute(k);
 		long endTime = System.nanoTime();
 		setElapsedTime(endTime-startTime);
 		return getElapsedTime();

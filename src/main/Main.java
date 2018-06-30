@@ -1,5 +1,6 @@
 package main;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -7,13 +8,16 @@ import sorting.Algorithm;
 import sorting.BeadSort;
 import sorting.InsertionSort;
 import sorting.MergeSort;
+import sorting.QuickSort;
 
 public class Main {
 
     // TODO: Add data set to sort
+    // TODO: Change algorithm variants to subclasses, override sort
+    //       Or even just subclasses of algorithm.
 	public static void main(String[] args) {
 		
-	    int n = 200000;
+	    int n = 1000000;
 		
 		int[] a = new int[n];
 		List<Integer> list = new LinkedList<Integer>();
@@ -26,18 +30,37 @@ public class Main {
 		
 		Algorithm[] b = {new InsertionSort(a), 
 	        new MergeSort(list),
+	        new QuickSort<Integer>(a),
 	        new BeadSort(a)};
 		
-		System.out.println("Sum of all elements in array: " + sum(a));
+		System.out.println("Sum of elements in array: " 
+	        + String.format("%,14d", sum(a)));
 		System.out.println("Algorithms in ascending order of");
 		System.out.println("execution time:");
 		System.out.println("----------------------------------------");
-		printAlgorithms(b);
+		//printAlgorithms(b);
+		
+		
+		int[] test = new int[] {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
+		int[] test2 = new int[] {9, 5, 6, 3, 4, 1, 2, 0, 11, 9};
+		System.out.println(Arrays.toString(test2));
+		BeadSort.beadSort_Horizontal(test2);
+		System.out.println(Arrays.toString(test2));
+		
+		/*
+		Algorithm gravity_ver = new BeadSort(a);
+		Algorithm gravity_hor = new BeadSort(a);
+		gravity_ver.elapsedTime(1);
+		gravity_hor.elapsedTime(2);
+		System.out.print(gravity_ver.toString());
+		System.out.print(gravity_hor.toString());
+		*/
 	}
 	
 	public static void printAlgorithms(Algorithm[] a) {
 	    for (int i=0; i<a.length; i++)
-	        a[i].elapsedTime();
+	        // Use default algorithm
+	        a[i].elapsedTime(0);
 	    Algorithm.sort(a);
 	    for (int i=0; i<a.length; i++)
 	        System.out.print(a[i].toString());

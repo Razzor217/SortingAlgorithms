@@ -24,30 +24,39 @@ import java.util.List;
 public class MergeSort extends Algorithm {
 
     private ArrayList<Integer> a;
-    private LinkedList<Integer> b;
+    private LinkedList<Integer> list;
     
     public MergeSort(List<Integer> a) {
         super();
-        setName("Merge Sort");
+        setName("Mergesort");
         if (a == null)
             throw new NullPointerException(
                 "Error, cannot sort null array");
         this.a = new ArrayList<Integer>();
-        b = new LinkedList<Integer>();
+        list = new LinkedList<Integer>();
         this.a.addAll(a);
-        b.addAll(a);
+        list.addAll(a);
     }
     
     @Override
-    public void execute() {
-        mergeSort(a);
+    public void execute(int k) {
+        switch (k) {
+        case 1:
+            mergeSort(list);
+            break;
+        case 2:
+            mergeSort(a);
+            break;
+        default:
+            mergeSort(list);
+        }
     }
 
     @Override
     public String toString() {
         return getName()
             + ":\nList Length: "
-            + String.format("%24d", a.size())
+            + String.format("%,27d", a.size())
             + "\nElapsed Time: " 
             + String.format("%,23d", getElapsedTime())
             + " ns\n----------------------------------------\n";
