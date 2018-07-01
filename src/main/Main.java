@@ -1,11 +1,11 @@
 package main;
 
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
 import sorting.Algorithm;
 import sorting.BeadSort;
+import sorting.BeadSort_Horizontal;
 import sorting.InsertionSort;
 import sorting.MergeSort_AL;
 import sorting.MergeSort_LL;
@@ -18,47 +18,42 @@ public class Main {
     //       Or even just subclasses of algorithm.
 	public static void main(String[] args) {
 		
-	    int n = 2000;
+	    int n = 50000000;
+	    int range = 2;
 		
 		int[] a = new int[n];
 		List<Integer> list = new LinkedList<Integer>();
 		
 		for (int i=0; i<n; i++) {
-			int elem = (int)(Math.random()*100+1);
+			int elem = (int)(Math.random()*range+1);
 			a[i] = elem;
 			list.add(elem);
 		}
 		
 		Algorithm[] b = {
-		    //new InsertionSort(a), 
+	        //new InsertionSort(a), 
 	        //new MergeSort_AL(list),
-	        //new QuickSort<Integer>(a),
+	        //new QuickSort<Integer>(a)//,
 	        //new MergeSort_LL(list),
-	        //new BeadSort(a)
+	        new BeadSort(a),
+	        new BeadSort_Horizontal(a)
 	        };
 		
 		System.out.println("Sum of elements in array: " 
 	        + String.format("%,14d", sum(a)));
+		System.out.println("Range: " 
+	        + String.format("%33s", "[" + 1 + "," + range + "]"));
 		System.out.println("Algorithms in ascending order of");
 		System.out.println("execution time:");
 		System.out.println("----------------------------------------");
 		printAlgorithms(b);
 		
-		
+		/*
 		int[] test = new int[] {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
 		int[] test2 = new int[] {9, 5, 6, 3, 4, 1, 2, 0, 11, 9};
 		System.out.println(Arrays.toString(test2));
 		QuickSort.quickSort(test2, 0, 9);
 		System.out.println(Arrays.toString(test2));
-		
-		
-		/*
-		Algorithm gravity_ver = new BeadSort(a);
-		Algorithm gravity_hor = new BeadSort(a);
-		gravity_ver.elapsedTime(1);
-		gravity_hor.elapsedTime(2);
-		System.out.print(gravity_ver.toString());
-		System.out.print(gravity_hor.toString());
 		*/
 	}
 	

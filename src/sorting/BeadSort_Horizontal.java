@@ -7,7 +7,7 @@ public class BeadSort_Horizontal extends Algorithm {
 
     public BeadSort_Horizontal(int[] a) {
         super();
-        setName("Bead Sort");
+        setName("Bead Sort (Horizontal)");
         if (a == null)
             throw new NullPointerException(
                 "Error, cannot sort null array");
