@@ -50,9 +50,9 @@ public class MergeSort_LL extends Algorithm {
         Iterator<Integer> it = a.iterator();
         
         for (int i=0; i<(int)Math.floor(n/2d); i++)
-           left.add(it.next());
+           left.addLast(it.next());
         for (int i=(int)Math.floor(n/2d); i<n; i++)
-            right.add(it.next());
+            right.addLast(it.next());
         
         return merge(mergeSort(left), mergeSort(right));
     }
@@ -65,14 +65,14 @@ public class MergeSort_LL extends Algorithm {
         
         while (!left.isEmpty() && !right.isEmpty()) {
             if(left.get(0) <= right.get(0))
-                result.add(left.removeFirst());
+                result.addLast(left.removeFirst());
             else
-                result.add(right.removeFirst());
+                result.addLast(right.removeFirst());
         }
         while (!left.isEmpty())
-            result.add(left.removeFirst());
+            result.addLast(left.removeFirst());
         while (!right.isEmpty())
-            result.add(right.removeFirst());
+            result.addLast(right.removeFirst());
             
         return result;
     }

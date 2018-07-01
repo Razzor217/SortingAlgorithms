@@ -8,6 +8,7 @@ import sorting.Algorithm;
 import sorting.BeadSort;
 import sorting.InsertionSort;
 import sorting.MergeSort_AL;
+import sorting.MergeSort_LL;
 import sorting.QuickSort;
 
 public class Main {
@@ -17,35 +18,39 @@ public class Main {
     //       Or even just subclasses of algorithm.
 	public static void main(String[] args) {
 		
-	    int n = 1000000;
+	    int n = 2000;
 		
 		int[] a = new int[n];
 		List<Integer> list = new LinkedList<Integer>();
 		
 		for (int i=0; i<n; i++) {
-			int elem = (int)(Math.random()*50+1);
+			int elem = (int)(Math.random()*100+1);
 			a[i] = elem;
 			list.add(elem);
 		}
 		
-		Algorithm[] b = {new InsertionSort(a), 
-	        new MergeSort_AL(list),
-	        new QuickSort<Integer>(a),
-	        new BeadSort(a)};
+		Algorithm[] b = {
+		    //new InsertionSort(a), 
+	        //new MergeSort_AL(list),
+	        //new QuickSort<Integer>(a),
+	        //new MergeSort_LL(list),
+	        //new BeadSort(a)
+	        };
 		
 		System.out.println("Sum of elements in array: " 
 	        + String.format("%,14d", sum(a)));
 		System.out.println("Algorithms in ascending order of");
 		System.out.println("execution time:");
 		System.out.println("----------------------------------------");
-		//printAlgorithms(b);
+		printAlgorithms(b);
 		
 		
 		int[] test = new int[] {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
 		int[] test2 = new int[] {9, 5, 6, 3, 4, 1, 2, 0, 11, 9};
 		System.out.println(Arrays.toString(test2));
-		BeadSort.beadSort(test2);
+		QuickSort.quickSort(test2, 0, 9);
 		System.out.println(Arrays.toString(test2));
+		
 		
 		/*
 		Algorithm gravity_ver = new BeadSort(a);
