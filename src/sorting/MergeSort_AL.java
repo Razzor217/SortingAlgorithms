@@ -21,35 +21,24 @@ import java.util.List;
  * mergeSort() splits and builds the recursion, 
  * merge() merges the two lists into one sorted list.
  */
-public class MergeSort extends Algorithm {
+public class MergeSort_AL extends Algorithm {
 
     private ArrayList<Integer> a;
-    private LinkedList<Integer> list;
     
-    public MergeSort(List<Integer> a) {
+    
+    public MergeSort_AL(List<Integer> a) {
         super();
-        setName("Mergesort");
+        setName("Mergesort (Arraylist)");
         if (a == null)
             throw new NullPointerException(
                 "Error, cannot sort null array");
         this.a = new ArrayList<Integer>();
-        list = new LinkedList<Integer>();
         this.a.addAll(a);
-        list.addAll(a);
     }
     
     @Override
-    public void execute(int k) {
-        switch (k) {
-        case 1:
-            mergeSort(list);
-            break;
-        case 2:
-            mergeSort(a);
-            break;
-        default:
-            mergeSort(list);
-        }
+    public void execute() {
+        mergeSort(a);
     }
 
     @Override
@@ -105,49 +94,6 @@ public class MergeSort extends Algorithm {
             right.remove(0);
         }
         
-        return result;
-    }
-    
-    /*
-     * Linked list has O(n) for retrieving elements 
-     * but O(1) for adding and removing elements at 
-     * the front/end of the list
-     */
-    public static LinkedList<Integer> mergeSort(LinkedList<Integer> a) {
-        
-        if (a.size()==1)
-            return a;
-        
-        int n = a.size();
-        LinkedList<Integer> left = new LinkedList<Integer>();
-        LinkedList<Integer> right = new LinkedList<Integer>();
-        Iterator<Integer> it = a.iterator();
-        
-        for (int i=0; i<(int)Math.floor(n/2d); i++)
-           left.add(it.next());
-        for (int i=(int)Math.floor(n/2d); i<n; i++)
-            right.add(it.next());
-        
-        return merge(mergeSort(left), mergeSort(right));
-    }
-    
-    public static LinkedList<Integer> merge(
-            LinkedList<Integer> left, 
-            LinkedList<Integer> right) {
-        
-        LinkedList<Integer> result = new LinkedList<Integer>();
-        
-        while (!left.isEmpty() && !right.isEmpty()) {
-            if(left.get(0) <= right.get(0))
-                result.add(left.removeFirst());
-            else
-                result.add(right.removeFirst());
-        }
-        while (!left.isEmpty())
-            result.add(left.removeFirst());
-        while (!right.isEmpty())
-            result.add(right.removeFirst());
-            
         return result;
     }
 }

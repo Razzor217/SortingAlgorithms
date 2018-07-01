@@ -4,17 +4,19 @@ package sorting;
  * Basic abstract class for an algorithm which supports execution, 
  * calculation of elapsed time and string representation of 
  * former data to analyze execution time of different algorithms.
+ * 
+ * Different variants of the same algorithm are implemented in different 
+ * subclasses of Algorithm if they differ vastly or if they are implemented on 
+ * top of different data structures (e.g. array vs linked list).
  */
 public abstract class Algorithm implements Comparable<Algorithm>{
 	
 	private String name;
 	private long elapsedTime;
-	private int variants;
 	
 	public Algorithm() {
 	    name = null;
 	    elapsedTime = 0;
-	    variants = 1;
 	}
 	
 	public String getName() {
@@ -33,22 +35,14 @@ public abstract class Algorithm implements Comparable<Algorithm>{
 	    elapsedTime = time;
 	}
 	
-	public int getVariants() {
-	    return variants;
-	}
-	
-	protected void setVariants(int variants) {
-	    this.variants = variants;
-	}
-	
 	/*
 	 * Change the used variant of the algorithm
 	 */
-	public abstract void execute(int k);
+	public abstract void execute();
 	
-	public long elapsedTime(int k) {
+	public long elapsedTime() {
 		long startTime = System.nanoTime();
-		execute(k);
+		execute();
 		long endTime = System.nanoTime();
 		setElapsedTime(endTime-startTime);
 		return getElapsedTime();

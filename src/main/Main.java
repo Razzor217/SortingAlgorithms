@@ -7,7 +7,7 @@ import java.util.List;
 import sorting.Algorithm;
 import sorting.BeadSort;
 import sorting.InsertionSort;
-import sorting.MergeSort;
+import sorting.MergeSort_AL;
 import sorting.QuickSort;
 
 public class Main {
@@ -29,7 +29,7 @@ public class Main {
 		}
 		
 		Algorithm[] b = {new InsertionSort(a), 
-	        new MergeSort(list),
+	        new MergeSort_AL(list),
 	        new QuickSort<Integer>(a),
 	        new BeadSort(a)};
 		
@@ -44,7 +44,7 @@ public class Main {
 		int[] test = new int[] {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
 		int[] test2 = new int[] {9, 5, 6, 3, 4, 1, 2, 0, 11, 9};
 		System.out.println(Arrays.toString(test2));
-		BeadSort.beadSort_Horizontal(test2);
+		BeadSort.beadSort(test2);
 		System.out.println(Arrays.toString(test2));
 		
 		/*
@@ -59,8 +59,7 @@ public class Main {
 	
 	public static void printAlgorithms(Algorithm[] a) {
 	    for (int i=0; i<a.length; i++)
-	        // Use default algorithm
-	        a[i].elapsedTime(0);
+	        a[i].elapsedTime();
 	    Algorithm.sort(a);
 	    for (int i=0; i<a.length; i++)
 	        System.out.print(a[i].toString());

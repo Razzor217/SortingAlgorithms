@@ -24,14 +24,8 @@ public class QuickSort<T extends Comparable<T>> extends Algorithm {
     }
     
     @Override
-    public void execute(int k) {
-        switch(k) {
-        case 1:
-            quickSort(a, 0, a.length-1);
-            break;
-        default:
-            quickSort(a, 0, a.length-1);
-        }   
+    public void execute() {
+        quickSort(a, 0, a.length-1);   
     }
 
     @Override

@@ -11,7 +11,6 @@ public class InsertionSort extends Algorithm {
     public InsertionSort(int[] a) {
         super();
         setName("Insertion Sort");
-        setVariants(2);
         if (a == null)
             throw new NullPointerException(
                 "Error, cannot sort null array");
@@ -21,17 +20,8 @@ public class InsertionSort extends Algorithm {
     }
     
     @Override
-    public void execute(int k) {
-        switch(k) {
-        case 1:
-            insertionSort(a);
-            break;
-        case 2:
-            insertionSortV2(a);
-            break;
-        default:
-            insertionSortV2(a);
-        }
+    public void execute() {
+        insertionSortV2(a);
     }
 
     @Override
