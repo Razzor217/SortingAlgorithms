@@ -60,21 +60,18 @@ public class BeadSort_Horizontal extends Algorithm {
         
         // get greatest element
         int max = 0;
-        for (int i=0; i<n; i++) {
+        for (int i=0; i<n; i++)
             if (a[i]>=max)
                 max = a[i];
-        }
+        
         // Each column represents one positive integer of the original array
         int[][] beads = new int[max][n];
         // Initialize beads
-        for (int i=0; i<max; i++) {
-            for (int j=0; j<n; j++) {
+        for (int i=0; i<max; i++)
+            for (int j=0; j<n; j++)
                 if (i<a[j])
                     beads[i][j] = 1;
-                else
-                    beads[i][j] = 0;
-            }
-        }
+                
         //printMatrix(beads);
         for (int i=0; i<max; i++) {
             int sum = 0;

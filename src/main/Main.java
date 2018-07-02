@@ -18,7 +18,7 @@ public class Main {
     //       Or even just subclasses of algorithm.
 	public static void main(String[] args) {
 		
-	    int n = 50000000;
+	    int n = 5000;
 	    int range = 2;
 		
 		int[] a = new int[n];
