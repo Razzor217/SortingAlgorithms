@@ -13,7 +13,7 @@ import java.util.List;
  * @param <T> Type of the value of elements in the heap
  * @param <K> Type of the keys of elements in the heap
  */
-public interface Heap<T, K> extends PriorityQueue<T, K>{
+public interface Heap<T, K extends Comparable<K>> extends PriorityQueue<T, K>{
 
     /**
      * Initially builds a heap from a list of elements of type 

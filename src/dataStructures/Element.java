@@ -8,7 +8,7 @@ package dataStructures;
  * @param <T> Type of the value of an element
  * @param <K> Type of the key of an element
  */
-public class Element<T, K> {
+public class Element<T, K extends Comparable<K>> {
     
     private T value;
     private K key;

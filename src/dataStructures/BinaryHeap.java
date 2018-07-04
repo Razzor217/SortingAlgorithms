@@ -12,7 +12,7 @@ import java.util.List;
  * @param <T> Type of the value of elements in BH
  * @param <K> Type of the key of elements in BH
  */
-public class BinaryHeap<T, K> implements Heap<T, K> {
+public class BinaryHeap<T, K extends Comparable<K>> implements Heap<T, K> {
     
     private LinkedList<Element<T, K>> list;
     private int n;

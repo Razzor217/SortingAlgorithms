@@ -11,7 +11,7 @@ package dataStructures;
  * @param <T> Type of the value of elements in the PQ
  * @param <K> Type of the key of  elements in the PQ
  */
-public interface PriorityQueue<T, K> {
+public interface PriorityQueue<T, K extends Comparable<K>> {
 
     /**
      * Inserts a new element into the PQ, sorted by {@code key}.
