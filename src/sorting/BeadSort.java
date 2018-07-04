@@ -1,7 +1,5 @@
 package sorting;
 
-import java.util.Arrays;
-
 /*
  * Implements Bead Sort on a simple array of positive integers.
  * The algorithm is explained below.

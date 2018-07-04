@@ -1,6 +1,5 @@
 package sorting;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -64,7 +63,7 @@ public class MergeSort_LL extends Algorithm {
         LinkedList<Integer> result = new LinkedList<Integer>();
         
         while (!left.isEmpty() && !right.isEmpty()) {
-            if(left.get(0) <= right.get(0))
+            if(left.getFirst() <= right.getFirst())
                 result.addLast(left.removeFirst());
             else
                 result.addLast(right.removeFirst());
