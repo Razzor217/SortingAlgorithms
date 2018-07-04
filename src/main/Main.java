@@ -1,11 +1,13 @@
 package main;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
 import sorting.Algorithm;
 import sorting.BeadSort;
 import sorting.BeadSort_Horizontal;
+import sorting.HeapSort_Int;
 import sorting.InsertionSort;
 import sorting.MergeSort_AL;
 import sorting.MergeSort_LL;
@@ -33,10 +35,11 @@ public class Main {
 		Algorithm[] b = {
 	        //new InsertionSort(a), 
 	        //new MergeSort_AL(list),
-	        new QuickSort<Integer>(a)//,
+	        //new QuickSort<Integer>(a)//,
 	        //new MergeSort_LL(list),
 	        //new BeadSort(a),
-	        //new BeadSort_Horizontal(a)
+	        //new BeadSort_Horizontal(a),
+		    //new HeapSort_Int(a)
 	        };
 		
 		System.out.println("Sum of elements in array: " 
@@ -46,15 +49,15 @@ public class Main {
 		System.out.println("Algorithms in ascending order of");
 		System.out.println("execution time:");
 		System.out.println("----------------------------------------");
-		printAlgorithms(b);
+		//printAlgorithms(b);
 		
-		/*
+		
 		int[] test = new int[] {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
 		int[] test2 = new int[] {9, 5, 6, 3, 4, 1, 2, 0, 11, 9};
 		System.out.println(Arrays.toString(test2));
-		QuickSort.quickSort(test2, 0, 9);
+		HeapSort_Int.heapSortAsc(test2);
 		System.out.println(Arrays.toString(test2));
-		*/
+		
 	}
 	
 	public static void printAlgorithms(Algorithm[] a) {
