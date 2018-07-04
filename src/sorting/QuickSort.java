@@ -21,6 +21,8 @@ public class QuickSort<T extends Comparable<T>> extends Algorithm {
             throw new NullPointerException(
                 "Error, cannot sort null array");
         this.a = new int[a.length];
+        for (int i=0; i<a.length; i++)
+            this.a[i] = a[i];
     }
     
     @Override

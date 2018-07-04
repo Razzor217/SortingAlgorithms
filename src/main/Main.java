@@ -18,8 +18,8 @@ public class Main {
     //       Or even just subclasses of algorithm.
 	public static void main(String[] args) {
 		
-	    int n = 5000;
-	    int range = 2;
+	    int n = 5000000;
+	    int range = 1000;
 		
 		int[] a = new int[n];
 		List<Integer> list = new LinkedList<Integer>();
@@ -33,10 +33,10 @@ public class Main {
 		Algorithm[] b = {
 	        //new InsertionSort(a), 
 	        //new MergeSort_AL(list),
-	        //new QuickSort<Integer>(a)//,
+	        new QuickSort<Integer>(a)//,
 	        //new MergeSort_LL(list),
-	        new BeadSort(a),
-	        new BeadSort_Horizontal(a)
+	        //new BeadSort(a),
+	        //new BeadSort_Horizontal(a)
 	        };
 		
 		System.out.println("Sum of elements in array: " 
@@ -65,8 +65,8 @@ public class Main {
 	        System.out.print(a[i].toString());
 	}
 	
-	public static int sum(int[] a) {
-	    int sum = 0;
+	public static long sum(int[] a) {
+	    long sum = 0;
 	    for (int i=0; i<a.length; i++)
 	        sum += a[i];
 	    return sum;
