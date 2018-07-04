@@ -2,6 +2,7 @@ package dataStructures;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Vector;
 
 // TODO: binary heap for integers, fast implementation (without generic code)
 
@@ -14,23 +15,21 @@ import java.util.List;
  */
 public class BinaryHeap<T, K extends Comparable<K>> implements Heap<T, K> {
     
-    private LinkedList<Element<T, K>> list;
+    private Vector<Element<T, K>> h;
     private int n;
     
-    public BinaryHeap(LinkedList<Element<T, K>> list) {
-        this.list = new LinkedList<Element<T, K>>();
-        this.list.addAll(list);
+    public BinaryHeap(int w) {
+        this.h = new Vector<Element<T, K>>(w);
         n = 0;
-        
-        build(this.list);   
+        build(this.h);   
     }
     
-    public LinkedList<Element<T, K>> getList() { return list; }
+    public LinkedList<Element<T, K>> getVector() { return h; }
 
     @Override
     public void insert(Element<T, K> element) {
         if (n<size()) {
-            list.add(n++, element);
+            h.add(n++, element);
             siftUp(n);
         }
     }
@@ -61,12 +60,12 @@ public class BinaryHeap<T, K extends Comparable<K>> implements Heap<T, K> {
 
     @Override
     public int size() {
-        return list.size();
+        return h.size();
     }
 
     @Override
     public Element<T, K> min() {
-        return list.getFirst();
+        return h.firstElement();
     }
 
     @Override
@@ -76,10 +75,12 @@ public class BinaryHeap<T, K extends Comparable<K>> implements Heap<T, K> {
     }
     
     public void siftUp(int i) {
-        /*
-        if (i==1 || list.get((int)Math.floor(i/2d)).get<=list.get(i)) {
+        int floor = (int) Math.floor(i/2d);
+        if (i==1 || h.get(floor).getKey()
+                    .compareTo(h.get(i).getKey())<=0) {
             
         }
-        */
     }
+    
+    public void swap() {}
 }
