@@ -10,16 +10,17 @@ import java.util.List;
  * 
  * @author Max Beddies
  *
- * @param <T> Type of the elements in the heap
+ * @param <T> Type of the value of elements in the heap
  * @param <K> Type of the keys of elements in the heap
  */
 public interface Heap<T, K> extends PriorityQueue<T, K>{
 
     /**
-     * Initially builds a heap from a list of elements of type {@code T}.
+     * Initially builds a heap from a list of elements of type 
+     * {@code Element<T, K>}.
      * @param list List of elements to build the heap from
      */
-    public void build(List<T> list);
+    public void build(List<Element<T, K>> list);
     
     /**
      * Returns the length of the underlying PQ.
