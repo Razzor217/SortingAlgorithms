@@ -33,7 +33,7 @@ public interface Heap<T, K> extends PriorityQueue<T, K>{
      * from the PQ.
      * @return The smallest element of the heap
      */
-    public T min();
+    public Element<T, K> min();
     
     /**
      * Merges two heaps by merging the underlying PQs and rebuilding the heap.

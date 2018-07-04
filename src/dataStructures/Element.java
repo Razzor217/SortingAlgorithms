@@ -1,5 +1,13 @@
 package dataStructures;
 
+/**
+ * Assigns a key of type {@code K} to a value of type {@code T}.
+ * 
+ * @author Max Beddies
+ *
+ * @param <T> Type of the value of an element
+ * @param <K> Type of the key of an element
+ */
 public class Element<T, K> {
     
     private T value;

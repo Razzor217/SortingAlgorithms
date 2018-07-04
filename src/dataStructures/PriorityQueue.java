@@ -25,14 +25,14 @@ public interface PriorityQueue<T, K> {
      * @param key Key of the element to be removed
      * @return The removed element
      */
-    public T remove(K key);
+    public Element<T, K> remove(K key);
     
     /**
      * Deletes and returns the element with smallest key.
      * Rebuilds PQ after removal.
      * @return The element with smallest key.
      */
-    public T deleteMin();
+    public Element<T, K> deleteMin();
     
     /**
      * Decreases the key of a given element in the PQ 
