@@ -2,7 +2,7 @@ package sorting;
 
 public abstract class KSortArray extends Algorithm {
 
-    private int[] a;
+    protected int[] a;
     protected int K;
     
     public KSortArray(int[] a, int K) {
@@ -19,7 +19,7 @@ public abstract class KSortArray extends Algorithm {
     
     @Override
     public void execute() {
-        // TODO Auto-generated method stub
+        kSort(a);
         
     }
 
