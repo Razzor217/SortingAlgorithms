@@ -1,7 +1,6 @@
 package dataStructures;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 /**
  * Implements the heap interface as generic binary heap (BH).
@@ -23,12 +22,17 @@ public class BinaryHeap<T extends Element<K>, K extends Comparable<K>>
      * shifted by one index, therefore the internal array list starts at 
      * index {@code 1} and ends at index {@code w}.
      * 
+     * Initializes the array list with {@code null} since insertions are 
+     * implemented as overwrites, instead of adding new list entries.
+     * 
      * @param w Maximum size of the binary heap
      */
     public BinaryHeap(int w) {
         this.w = w;
         n = 0;
         this.h = new ArrayList<T>(w+1);
+        for (int i=0; i<=w; i++)
+            h.add(null);
     }
     
     public ArrayList<T> getList() { return h; }
