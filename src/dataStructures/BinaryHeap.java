@@ -104,7 +104,7 @@ public class BinaryHeap<T extends Element<K>, K extends Comparable<K>>
         int floor = (int) Math.floor(i/2d);
         if (i==1 || h.get(floor).getKey().compareTo(h.get(i).getKey())<=0)
             return;
-        Collections.swap(h, i, floor);
+        swap(h, i, floor);
         siftUp(floor);
     }
     
@@ -117,9 +117,15 @@ public class BinaryHeap<T extends Element<K>, K extends Comparable<K>>
             else
                 m = 2*i+1;
             if (h.get(i).getKey().compareTo(h.get(m).getKey())>0) {
-                Collections.swap(h, i, m);
+                swap(h, i, m);
                 siftDown(m);
             }
         }
+    }
+    
+    private void swap(ArrayList<T> list, int i, int j) {
+        T temp = list.get(i);
+        list.set(i, list.get(j));
+        list.set(j, temp);
     }
 }
