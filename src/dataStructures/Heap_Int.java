@@ -7,6 +7,8 @@ package dataStructures;
  * Child nodes must have smaller priority (= higher key) than
  * parent nodes.
  * 
+ * @see dataStructures.Heap
+ * 
  * @author Max Beddies
  *
  */

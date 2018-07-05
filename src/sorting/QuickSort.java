@@ -1,19 +1,28 @@
 package sorting;
 
-/*
+/**
  * Implements quick sort on arrays of integers, generic variant needs to be 
  * added. 
- * Quicksort divides any sequence of comparable objects into three parts: 
- *      1. sequence containing objects smaller than pivot
- *      2. pivot element
- *      3. sequence containing objects greater than or equal to pivot
+ * Quicksort divides any sequence of comparable objects into three parts:
+ * <ol> 
+ *      <li>sequence containing objects smaller than pivot</li>
+ *      <li>pivot element</li>
+ *      <li>sequence containing objects greater than or equal to pivot</li>
+ * </ol>
  * The same algorithm is then applied to sequences 1 and 3 which builds the 
- * recursion of quick sort.
+ * recursion of quick sort.<p>
+ * Time complexity: {@code O(n*log n)}
+ * 
+ * @author Max Beddies
  */
 public class QuickSort<T extends Comparable<T>> extends Algorithm {
 
     private int[] a;
     
+    /**
+     * Initializes quick sort with an integer array.
+     * @param a The unsorted array
+     */
     public QuickSort(int[] a) {
         super();
         setName("Quicksort");
@@ -45,10 +54,12 @@ public class QuickSort<T extends Comparable<T>> extends Algorithm {
         return a;
     }
 
-    /*
-     * a - array to be sorted
-     * l - left most index to apply partitioning on
-     * r - right most index to apply partitioning on
+    /**
+     * Executes quick sort as specified in the class description.
+     * @param a Unsorted integer array
+     * @param l Index of the left-most array element (start of array)
+     * @param r Index of the right-most array element (end of array)
+     * @return The sorted array
      */
     public static int[] quickSort(int[] a, int l, int r) {
         if (l<r) {
@@ -60,6 +71,16 @@ public class QuickSort<T extends Comparable<T>> extends Algorithm {
         return a;
     }
     
+    /**
+     * Partitions the array into three parts by swapping all elements 
+     * which are smaller than the pivot element to the left of the pivot 
+     * element.
+     * @param a The unsorted array
+     * @param l Index of the left-most element 
+     * @param r Index of the right-most element
+     * @param k Index of the pivot element
+     * @return Index of the pivot element, determines bounds of next recursion
+     */
     public static int partition(int[] a, int l, int r, int k) {
         int p = a[k];
         swap(a, k, r);
@@ -74,8 +95,11 @@ public class QuickSort<T extends Comparable<T>> extends Algorithm {
         return i;
     }
     
-    /*
-     * Swaps two objects in an array
+    /**
+     * Swaps two elements of an array
+     * @param a Array containing both integers
+     * @param l Index of the 1st integer
+     * @param r Index of the 2nd integer
      */
     public static final void swap(int[] a, int l, int r) {
         int temp = a[l];
@@ -83,8 +107,12 @@ public class QuickSort<T extends Comparable<T>> extends Algorithm {
         a[r] = temp;
     }
     
-    /*
-     * Picks the pivot element, could be implemented to pick randomly
+    /**
+     * Chooses the index of the pivot element
+     * @param a Unsorted array
+     * @param l Left bound of the array
+     * @param r Right bound of the array
+     * @return The index of the pivot element
      */
     public static int pickPivot(int[] a, int l, int r) {
         return r;

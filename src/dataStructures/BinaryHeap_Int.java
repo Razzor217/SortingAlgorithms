@@ -1,5 +1,14 @@
 package dataStructures;
 
+/**
+ * Implements a binary heap on top of an integer array
+ * (all key values and all element values are of integer type).
+ * @see dataStructures.Heap
+ * @see dataStructures.PriorityQueue
+ * 
+ * @author Max Beddies
+ *
+ */
 public class BinaryHeap_Int implements Heap_Int {
 
     private int[] h;
@@ -20,6 +29,11 @@ public class BinaryHeap_Int implements Heap_Int {
         this.h = new int[w+1];
     }
     
+    /**
+     * Rebuilds the binary heap according to the heap structure.
+     * 
+     * @see dataStructures.BinaryHeap
+     */
     public void buildHeapBackwards() {
         int floor = (int) Math.floor(n/2d);
         for (int i=floor; i>0; i--)
@@ -50,6 +64,12 @@ public class BinaryHeap_Int implements Heap_Int {
             "Cannot return minimal element from empty array");
     }
     
+    /**
+     * Shifts the element at index {@code i} up to maintain
+     * the heap property.
+     * 
+     * @param i Index of the element to shift up
+     */
     private void siftUp(int i) {
         int floor = (int) Math.floor(i/2d);
         if (i==1 || h[floor]<=h[i]) 
@@ -60,6 +80,12 @@ public class BinaryHeap_Int implements Heap_Int {
         }
     }
     
+    /**
+     * Shifts the element at index {@code i} down to maintain
+     * the heap property.
+     * 
+     * @param i Index of the element to shift down
+     */
     private void siftDown(int i) {
         if (2*i<=n) {
             int m;
@@ -74,6 +100,12 @@ public class BinaryHeap_Int implements Heap_Int {
         }
     }
 
+    /**
+     * Swaps two elements of an array.
+     * @param h Array containing the elements to swap
+     * @param i Index of the 1st element
+     * @param j Index of the 2nd element
+     */
     private void swap(int[] h, int i, int j) {
         int temp = h[i];
         h[i] = h[j];

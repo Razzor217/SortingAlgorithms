@@ -1,13 +1,23 @@
 package sorting;
 
-/*
- * Implements two variants of insertion sort on an array of integers.
- * The algorithm is vaguely explained below, though it is very simple.
+/**
+ * Implements insertion sort on top of an integer array. Each element is 
+ * swapped into its ordered position compared to all other elements in the 
+ * array.<p>
+ * Time complexity: {@code O(n^2)}
+ * 
+ * @author Max Beddies
+ *
  */
 public class InsertionSort extends Algorithm {
 
     private int[] a;
     
+    /**
+     * Initializes insertion sort with an integer array
+     * @param a The unsorted integer array
+     * @throws NullPointerException
+     */
     public InsertionSort(int[] a) {
         super();
         setName("Insertion Sort");
@@ -34,10 +44,10 @@ public class InsertionSort extends Algorithm {
             + " ns\n----------------------------------------\n";
     }
     
-    /*
-     * Executes an insertion sort on an array of integers.
-     * Each element is inserted at its ordered position compared to the 
-     * current array.
+    /**
+     * Executes an insertion sort as specified in the class description
+     * @param a The unsorted array
+     * @return The sorted array
      */
     public static int[] insertionSort(int[] a) {
         for (int i=1; i<a.length; i++) {

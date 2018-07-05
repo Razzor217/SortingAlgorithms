@@ -2,9 +2,42 @@ package sorting;
 
 import java.util.Arrays;
 
+/**
+ * Implements a bead sort (gravity sort) on a given array of positive integers. 
+ * Each number is represented by that many beads in one column on different 
+ * horizontally aligned posts. These are then sorted by letting the beads 
+ * 'fall down' (horizontally) on their respective post.<p>
+ * This implementation is faster than normal bead sorts because most of the
+ * computation is done on the rows of the matrix , i.e. in the same array.<p>
+ * Time complexity: {@code O(n*max{elem : elem\in a})}
+ * 
+ * @see sorting.BeadSort
+ * 
+ * @author Max Beddies
+ */
+/*
+ * Example: 
+ * The array {4, 1, 6, 2, 3, 1, 4} first unsorted and then sorted 
+ * represented on beads: 
+ *  
+ *    0 1 2 3 4 5 6       0 1 2 3 4 5 6
+ *  0 * * * * * * *     0 * * * * * * *
+ *  1 * - * * * - *     1 --- * * * * *
+ *  2 * - * - * - *  => 2 ----- * * * *
+ *  3 * - * ----- *     3 ------- * * *
+ *  4 --- * -------     4 ----------- *
+ *  5 --- * -------     5 ----------- *
+ *  
+ *     {4,1,6,2,3,1,4}  {1,1,2,3,4,4,6}
+ */
 public class BeadSort_Horizontal extends Algorithm {
     private int[] a;
 
+    /**
+     * Initializes bead sort with an array of integers.
+     * @param a The array to be sorted
+     * @throws NullPointerException
+     */
     public BeadSort_Horizontal(int[] a) {
         super();
         setName("Bead Sort (Horizontal)");
@@ -36,23 +69,10 @@ public class BeadSort_Horizontal extends Algorithm {
             + " ns\n----------------------------------------\n";
     }
     
-    /*
-     * Executes a bead sort on a given array of positive integers. 
-     * Each number is represented by that many beads in one column on different 
-     * horizontally aligned posts. These are then sorted by letting the beads 
-     * 'fall down' (vertically) on their respective post, for example: 
-     * The array {4, 1, 6, 2, 3, 1, 4} first unsorted and then sorted 
-     * represented on beads: 
-     *  
-     *    0 1 2 3 4 5 6       0 1 2 3 4 5 6
-     *  0 * * * * * * *     0 * * * * * * *
-     *  1 * - * * * - *     1 --- * * * * *
-     *  2 * - * - * - *  => 2 ----- * * * *
-     *  3 * - * ----- *     3 ------- * * *
-     *  4 --- * -------     4 ----------- *
-     *  5 --- * -------     5 ----------- *
-     *  
-     *     {4,1,6,2,3,1,4}  {1,1,2,3,4,4,6}
+    /**
+     * Executes a bead sort as specified in the class description.
+     * @param a Array to be sorted
+     * @return The sorted array
      */
     public static int[] beadSort(int[] a) {
         
@@ -72,7 +92,6 @@ public class BeadSort_Horizontal extends Algorithm {
                 if (i<a[j])
                     beads[i][j] = 1;
                 
-        //printMatrix(beads);
         for (int i=0; i<max; i++) {
             int sum = 0;
             // Count beads on each post
@@ -80,12 +99,11 @@ public class BeadSort_Horizontal extends Algorithm {
                 sum += beads[i][j];
                 beads[i][j] = 0;
             }
-            // 'Drop' beads via (vertical) gravity
+            // 'Drop' beads via (horizontal) gravity
             for (int j=n-sum; j<n; j++)
                 beads[i][j] = 1;
         }
-        //printMatrix(beads);
-        //System.out.println(max);
+        
         // Refill array
         for (int j=0; j<n; j++) {
             int i;
@@ -95,6 +113,10 @@ public class BeadSort_Horizontal extends Algorithm {
         return a;
     }
     
+    /**
+     * Prints a given matrix to the console, for testing purposes.
+     * @param a Matrix to print
+     */
     public static void printMatrix(int[][] a) {
         for (int i=0; i<a.length; i++)
             System.out.println(Arrays.toString(a[i]));

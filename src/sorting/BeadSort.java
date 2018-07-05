@@ -1,13 +1,37 @@
 package sorting;
 
-/*
- * Implements Bead Sort on a simple array of positive integers.
- * The algorithm is explained below.
+/**
+ * Implements a bead sort on a given array of positive integers. 
+ * Each number is represented by that many beads in one row on different 
+ * vertically aligned posts. These are then sorted by letting the beads 
+ * 'fall down' on their respective post.<p>
+ * Time complexity: {@code O(n*max{elem : elem\in a})}
+ * 
+ * @author Max Beddies
+ */
+/* Example: 
+ * The array {4, 1, 6, 2, 3, 1, 4} first unsorted and then sorted 
+ * represented on beads: 
+ *        0 1 2 3 4 5      0 1 2 3 4 5
+ *      0 * * * * | |    0 * | | | | |
+ *      1 * | | | | |    1 * | | | | |
+ *      2 * * * * * *    2 * * | | | |
+ *      3 * * | | | | => 3 * * * | | |
+ *      4 * * * | | |    4 * * * * | |
+ *      5 * | | | | |    5 * * * * | |
+ *      6 * * * * | |    6 * * * * * *
+ * 
+ *     {4,1,6,2,3,1,4}  {1,1,2,3,4,4,6}
  */
 public class BeadSort extends Algorithm {
 
     private int[] a;
-
+    
+    /**
+     * Initializes bead sort with an array of integers.
+     * @param a The array to be sorted
+     * @throws NullPointerException
+     */
     public BeadSort(int[] a) {
         super();
         setName("Bead Sort");
@@ -39,23 +63,10 @@ public class BeadSort extends Algorithm {
             + " ns\n----------------------------------------\n";
     }
 
-    /*
-     * Executes a bead sort on a given array of positive integers. 
-     * Each number is represented by that many beads in one row on different 
-     * vertically aligned posts. These are then sorted by letting the beads 
-     * 'fall down' on their respective post, for example: 
-     * The array {4, 1, 6, 2, 3, 1, 4} first unsorted and then sorted 
-     * represented on beads: 
-     *        0 1 2 3 4 5      0 1 2 3 4 5
-     *      0 * * * * | |    0 * | | | | |
-     *      1 * | | | | |    1 * | | | | |
-     *      2 * * * * * *    2 * * | | | |
-     *      3 * * | | | | => 3 * * * | | |
-     *      4 * * * | | |    4 * * * * | |
-     *      5 * | | | | |    5 * * * * | |
-     *      6 * * * * | |    6 * * * * * *
-     * 
-     *     {4,1,6,2,3,1,4}  {1,1,2,3,4,4,6}
+    /**
+     * Executes a bead sort as specified in the class description.
+     * @param a Array to be sorted
+     * @return The sorted array
      */
     public static int[] beadSort(int[] a) {
         int n = a.length;

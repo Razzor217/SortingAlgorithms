@@ -3,27 +3,25 @@ package sorting;
 import java.util.ArrayList;
 import java.util.List;
 
-/*
- * Implements merge sort on integer array lists and linked lists.
+/**
+ * Implements a merge sort on top of an array list containing integers.
+ * <p>
+ * Array lists have index access in constant time, but addition of new 
+ * elements only in amortized constant time.
+ * 
+ * @see sorting.MergeSort_LL
+ * 
+ * @author Max Beddies
  *
- * Mergesort sorts a list by recursively separating the list into 
- * two halves and merging them into a sorted list, for example:
- *  List:   {3, 2, 6, 4, 7, 8, 0, 1}
- *      1.  {3, 2, 6, 4} {7, 8, 0, 1}       (split)
- *      2.  {3, 2} {6, 4} {7, 8} {0, 1}     (split)
- *      3.  {3} {2} {6} {4} {7} {8} {0} {1} (split)
- *      4.  {2, 3} {4, 6} {7, 8} {0, 1}     (merge)
- *      5.  {2, 3, 4, 6} {0, 1, 7, 8}       (merge)
- *      6.  {0, 1, 2, 3, 4, 6, 7, 8}        (merge)
- *      
- * mergeSort() splits and builds the recursion, 
- * merge() merges the two lists into one sorted list.
  */
 public class MergeSort_AL extends Algorithm {
 
     private ArrayList<Integer> a;
     
-    
+    /**
+     * Initializes merge sort with an unsorted list of integers.
+     * @param a The unsorted list
+     */
     public MergeSort_AL(List<Integer> a) {
         super();
         setName("Mergesort (Arraylist)");
@@ -49,9 +47,13 @@ public class MergeSort_AL extends Algorithm {
             + " ns\n----------------------------------------\n";
     }
     
-    /*
-     * Array list has O(1) for retrieving elements etc, 
-     * but O(1*) (amortized) for adding new elements
+    /**
+     * Executes merge sort as specified in {@code MergeSort_LL}
+     * 
+     * @see sorting.MergeSort_LL
+     * 
+     * @param a The unsorted list
+     * @return The sorted list
      */
     public static ArrayList<Integer> mergeSort(ArrayList<Integer> a) {
         if (a.size()==1)
@@ -68,6 +70,15 @@ public class MergeSort_AL extends Algorithm {
         return merge(mergeSort(left), mergeSort(right));
     }
     
+    /**
+     * Merges two lists as specified in {@code MergeSort_LL}
+     * 
+     * @see sorting.MergeSort_LL#merge(LinkedList, LinkedList)
+     * 
+     * @param left The left list to merge
+     * @param right The right list to merge
+     * @return The sorted merged list
+     */
     public static ArrayList<Integer> merge(
             ArrayList<Integer> left, 
             ArrayList<Integer> right) {
