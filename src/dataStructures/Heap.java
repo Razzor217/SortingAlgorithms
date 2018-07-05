@@ -1,9 +1,7 @@
 package dataStructures;
 
-import java.util.List;
-
 /**
- * Interface for a heap, extends a priority queue by the operations
+ * Interface for a generic heap, extends a priority queue by the operations
  * {@code build}, {@code size}, {@code min} and {@code merge}.
  * A heap extends a PQ to a tree structure where the smallest element
  * is at the root of the tree.
@@ -22,13 +20,6 @@ import java.util.List;
  */
 public interface Heap<T extends Element<K>, K extends Comparable<K>> 
     extends PriorityQueue<T, K> {
-
-    /**
-     * Initially builds a heap from a list of elements of type 
-     * {@code T}.
-     * @param list List of elements to build the heap from
-     */
-    public void build(List<T> list);
     
     /**
      * Returns the length of the underlying PQ.
@@ -45,8 +36,7 @@ public interface Heap<T extends Element<K>, K extends Comparable<K>>
     
     /**
      * Merges two heaps by merging the underlying PQs and rebuilding the heap.
-     * @param heap First heap to be merged with
-     * @param other Second heap to be merged with
+     * @param other Binary heap to be merged with
      */
-    public void merge(Heap<T, K> heap, Heap<T, K> other);
+    public void merge(Heap<T, K> other);
 }
