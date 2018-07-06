@@ -93,7 +93,7 @@ public abstract class KSortArray extends Algorithm {
      * {@code 0...K} to fit in the buckets.
      * @param a The integer to check the key from
      * @return The key if it is within range
-     * @throws IllegalArgumentException
+     * @throws IllegalArgumentException If calculated key is not within range
      */
     private int key(int a) {
         int key = calculateKey(a);

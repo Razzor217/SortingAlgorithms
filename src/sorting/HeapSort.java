@@ -30,7 +30,7 @@ public class HeapSort<T extends Element<K>, K extends Comparable<K>>
     /**
      * Initializes heap sort with a list containing elements of type {@code T}.
      * @param list The list to be sorted
-     * @throws NullPointerException
+     * @throws NullPointerException If input list is not initialized
      */
     public HeapSort(List<T> list) {
         super();

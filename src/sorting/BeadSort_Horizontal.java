@@ -36,7 +36,9 @@ public class BeadSort_Horizontal extends Algorithm {
     /**
      * Initializes bead sort with an array of integers.
      * @param a The array to be sorted
-     * @throws NullPointerException
+     * @throws NullPointerException If input array is not initialized
+     * @throws IllegalArgumentException If input array contains non 
+     * positive values
      */
     public BeadSort_Horizontal(int[] a) {
         super();

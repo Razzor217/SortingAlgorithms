@@ -62,7 +62,7 @@ public class BinaryHeap<T extends Element<K>, K extends Comparable<K>>
      * Constructs (or reconstructs) the binary heap to maintain the 
      * heap property.<p>
      * Shifts all elements down the heap if needed, starting from 
-     * the parent node of index {@code n}, ending with index {@ode 1}.
+     * the parent node of index {@code n}, ending with index {@code 1}.
      * 
      * @see dataStructures.Heap
      */

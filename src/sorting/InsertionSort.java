@@ -16,7 +16,7 @@ public class InsertionSort extends Algorithm {
     /**
      * Initializes insertion sort with an integer array
      * @param a The unsorted integer array
-     * @throws NullPointerException
+     * @throws NullPointerException If input array is not initialized
      */
     public InsertionSort(int[] a) {
         super();

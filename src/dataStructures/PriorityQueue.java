@@ -10,7 +10,7 @@ import java.util.List;
  * 
  * For convenience, the data structure of the PQ is ordered by {@code key}
  * but addressed by {@code index} (Still, as it is sorted, {@code find} 
- * operations could be implemented in {@O(log n)} complexity).
+ * operations could be implemented in {@code O(log n)} complexity).
  * 
  * @author Max Beddies
  * 

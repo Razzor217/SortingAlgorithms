@@ -55,3 +55,9 @@ local.properties
 .cache-main
 .scala_dependencies
 .worksheet
+
+# Ignore documentation for now
+doc/
+
+# Mac
+.DS_Store
