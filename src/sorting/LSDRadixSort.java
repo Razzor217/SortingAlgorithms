@@ -4,7 +4,9 @@ package sorting;
  * Implements a LSD radix sort on top of {@code KSortArray}. This class
  * maintains a current index of the algoritm which is reset to {@code index=0} 
  * at each execution. The key for an integer {@code a} is defined using 
- * {@code index} as {@code key=a/K^index} for each digit. {@code KSortArray} 
+ * {@code index} as<p> 
+ * {@code key:=(a div K^index) mod K}<p>
+ * for each digit. {@code KSortArray} 
  * is then used to sort the array for each digit using bucket sort, starting 
  * with the least significant digit.<p>
  * Time complexity: {@code O(d*(n+K))}
@@ -40,7 +42,7 @@ public class LSDRadixSort extends KSortArray {
     
     @Override
     public int calculateKey(int a) {
-        return a / (int) Math.pow(K, index);
+        return (a / (int) Math.pow(K, index)) % K;
     }
     
     /**

@@ -9,6 +9,7 @@ import sorting.BeadSort;
 import sorting.BeadSort_Horizontal;
 import sorting.HeapSort_Int;
 import sorting.InsertionSort;
+import sorting.LSDRadixSort;
 import sorting.MergeSort_AL;
 import sorting.MergeSort_LL;
 import sorting.QuickSort;
@@ -54,9 +55,9 @@ public class Main {
 		
 		int[] test = new int[] {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
 		int[] test2 = new int[] {9, 5, 6, 3, 4, 1, 2, 0, 11, 9};
-		System.out.println(Arrays.toString(test2));
-		HeapSort_Int.heapSortAsc(test2);
-		System.out.println(Arrays.toString(test2));
+		System.out.println(Arrays.toString(test));
+		LSDRadixSort sort = new LSDRadixSort(test, 10, 2);
+		System.out.println(Arrays.toString(sort.lsdRadixSort(test)));
 		
 	}
 	
