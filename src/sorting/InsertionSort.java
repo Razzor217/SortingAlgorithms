@@ -31,7 +31,7 @@ public class InsertionSort extends Algorithm {
     
     @Override
     public void execute() {
-        insertionSortV2(a);
+        insertionSortV2(a, 0, a.length-1);
     }
 
     @Override
@@ -66,12 +66,16 @@ public class InsertionSort extends Algorithm {
         return a;
     }
     
-    /*
-     * Shorter implementation of insertion sort.
-     * Less code and shorter runtime.
+    /**
+     * Excecutes an insertion sort as specified in the class description
+     * except it sorts only elements in between index {@code l} and {@code r}
+     * @param a Unsorted array of integers
+     * @param l Index of the left-most element
+     * @param r Index of the right-most element
+     * @return The sorted array
      */
-    public static int[] insertionSortV2(int[] a) {
-        for (int i=0; i<a.length; i++) {
+    public static int[] insertionSortV2(int[] a, int l, int r) {
+        for (int i=l; i<r+1; i++) {
             int e = a[i];
             int j=i;
             while (j>0 && a[j-1]>e) {
