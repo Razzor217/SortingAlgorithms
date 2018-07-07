@@ -11,6 +11,6 @@ So far, the following algorithms have been implemented:
 4. `Bucket sort` (abstract)
 5. `LSD radix sort`
 6. `Merge sort` (array list variant and linked list variant)
-7. `Quick sort`
+7. `Quick sort` (normal and semi recursive variant which uses insertion sort for small list sizes)
 
 If not specified differently, these algorithms work on arrays / lists of integers to increase performance.
