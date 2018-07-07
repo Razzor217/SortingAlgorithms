@@ -15,7 +15,7 @@ package sorting;
  * 
  * @author Max Beddies
  */
-public class QuickSort<T extends Comparable<T>> extends Algorithm {
+public class QuickSort extends Algorithm {
 
     private int[] a;
     
@@ -49,11 +49,6 @@ public class QuickSort<T extends Comparable<T>> extends Algorithm {
                 + " ns\n----------------------------------------\n";
     }
     
-    public T[] quickSort(T[] a) {
-        
-        return a;
-    }
-
     /**
      * Executes quick sort as specified in the class description.
      * @param a Unsorted integer array

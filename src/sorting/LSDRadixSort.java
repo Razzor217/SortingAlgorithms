@@ -30,7 +30,7 @@ public class LSDRadixSort extends KSortArray {
      */
     public LSDRadixSort(int[] a, int K, int d) {
         super(a, K);
-        setName("LSD Radix Sort");
+        setName("LSD Radix Sort, Base " + K);
         this.d = d;
         index = 0;
     }
