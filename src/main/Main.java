@@ -13,6 +13,7 @@ import sorting.LSDRadixSort;
 import sorting.MergeSort_AL;
 import sorting.MergeSort_LL;
 import sorting.QuickSort;
+import sorting.QuickSort_SemiRec;
 
 public class Main {
 
@@ -21,8 +22,8 @@ public class Main {
     //       Or even just subclasses of algorithm.
 	public static void main(String[] args) {
 		
-	    int n = 5000000;
-	    int range = 1000;
+	    int n = 5000;
+	    int range = 100;
 		
 		int[] a = new int[n];
 		List<Integer> list = new LinkedList<Integer>();
@@ -34,13 +35,15 @@ public class Main {
 		}
 		
 		Algorithm[] b = {
-	        //new InsertionSort(a), 
-	        //new MergeSort_AL(list),
-	        //new QuickSort<Integer>(a)//,
-	        //new MergeSort_LL(list),
-	        //new BeadSort(a),
-	        //new BeadSort_Horizontal(a),
-		    //new HeapSort_Int(a)
+	        new InsertionSort(a), 
+	        new MergeSort_AL(list),
+	        new QuickSort(a),
+	        new MergeSort_LL(list),
+	        new BeadSort(a),
+	        new BeadSort_Horizontal(a),
+		    new HeapSort_Int(a),
+		    new LSDRadixSort(a, 10, (int) Math.log10(range) + 1),
+		    new QuickSort_SemiRec(a, 10)
 	        };
 		
 		System.out.println("Sum of elements in array: " 
@@ -49,15 +52,16 @@ public class Main {
 	        + String.format("%33s", "[" + 1 + "," + range + "]"));
 		System.out.println("Algorithms in ascending order of");
 		System.out.println("execution time:");
-		System.out.println("----------------------------------------");
+		System.out.println("-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
 		//printAlgorithms(b);
 		
 		
 		int[] test = new int[] {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
 		int[] test2 = new int[] {9, 5, 6, 3, 4, 1, 2, 0, 11, 9};
-		System.out.println(Arrays.toString(test));
-		LSDRadixSort sort = new LSDRadixSort(test, 10, 2);
-		System.out.println(Arrays.toString(sort.lsdRadixSort(test)));
+		System.out.println(Arrays.toString(test2));
+		QuickSort_SemiRec.quickSort(test2, 0, 9, 3);
+		System.out.println(Arrays.toString(test2));
+		
 		
 	}
 	
