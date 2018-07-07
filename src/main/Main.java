@@ -17,12 +17,9 @@ import sorting.QuickSort_SemiRec;
 
 public class Main {
 
-    // TODO: Add data set to sort
-    // TODO: Change algorithm variants to subclasses, override sort
-    //       Or even just subclasses of algorithm.
 	public static void main(String[] args) {
 		
-	    int n = 5000;
+	    int n = 50000;
 	    int range = 100;
 		
 		int[] a = new int[n];
@@ -43,6 +40,8 @@ public class Main {
 	        new BeadSort_Horizontal(a),
 		    new HeapSort_Int(a),
 		    new LSDRadixSort(a, 10, (int) Math.log10(range) + 1),
+		    new LSDRadixSort(a, 4, (int) Math.log10(range) + 1),
+		    new LSDRadixSort(a, 2, (int) Math.log10(range) + 1),
 		    new QuickSort_SemiRec(a, 10)
 	        };
 		
@@ -52,16 +51,16 @@ public class Main {
 	        + String.format("%33s", "[" + 1 + "," + range + "]"));
 		System.out.println("Algorithms in ascending order of");
 		System.out.println("execution time:");
-		System.out.println("-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
-		//printAlgorithms(b);
+		System.out.println("========================================");
+		printAlgorithms(b);
 		
-		
+		/*
 		int[] test = new int[] {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
 		int[] test2 = new int[] {9, 5, 6, 3, 4, 1, 2, 0, 11, 9};
 		System.out.println(Arrays.toString(test2));
 		QuickSort_SemiRec.quickSort(test2, 0, 9, 3);
 		System.out.println(Arrays.toString(test2));
-		
+		*/
 		
 	}
 	
@@ -69,6 +68,7 @@ public class Main {
 	    for (int i=0; i<a.length; i++)
 	        a[i].elapsedTime();
 	    Algorithm.sort(a);
+	    
 	    for (int i=0; i<a.length; i++)
 	        System.out.print(a[i].toString());
 	}
