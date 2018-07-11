@@ -24,6 +24,11 @@ public class QuickSort_SemiRec extends QuickSort {
         setName("QuickSort (semi recursive)");
     }
     
+    @Override
+    public void execute() {
+        quickSort(a, 0, a.length-1, n);
+    }
+    
     /**
      * Executes a semi recursive quick sort as specified in the class 
      * description

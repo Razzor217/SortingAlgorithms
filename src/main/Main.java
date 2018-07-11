@@ -19,7 +19,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-	    int n = 50000;
+	    int n = 10000;
 	    int range = 100;
 		
 		int[] a = new int[n];
