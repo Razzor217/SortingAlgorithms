@@ -3,101 +3,100 @@
 struct node {
 	int value;
 	Node* next;
-	Node* prev;
 };
 
-Node* init(int a) {
+struct list {
+	int size;
 	Node* head;
-	
-	head = malloc(sizeof(Node));
-	
+	Node* tail;
+};
+
+List* init(int a) {
+	List* list = malloc(sizeof(*list));
+	Node* head = malloc(sizeof(*head));
 	head->value = a;
-	head->next = head;
-	head->prev = head;
+	head->next = NULL;
+	list->size = 1;
+	list->head = head;
+	list->tail = head;
 
-	return head;
+	return list;
 }
 
-int first(Node* head) {
-	if (!isEmpty(head))
-		return head->next->value;
-	return -1;
+int size(List* list) {
+	return list->size;
 }
 
-int last(Node* head) {
-	if (!isEmpty(head))
-		return head->prev->value;
-	return -1;
+int first(List* list) {
+	if (isEmpty(list))
+		return -1;
+	return list->head->value;
 }
 
-int isEmpty(Node* head) {
-	if (head == NULL)
-		return 1;
-	return 0;
+int last(List* list) {
+	if (isEmpty(list))
+		return -1;
+	return list->tail->value;
 }
 
-void pushFront(Node* head, int a) {
-	Node* element;
-	Node* tail = head->prev;
+int isEmpty(List* list) {
+	return size(list) < 1;
+}
 
-	element = malloc(sizeof(Node));
+void pushFront(List* list, int a) {
+	Node* element = malloc(sizeof(*element));
 
 	element->value = a;
-	element->next = head;
-	element->prev = tail;
+	element->next = list->head;
 
-	tail->next = element;
-	head->prev = element;
-	head = element;
+	list->head = element;
+	(list->size)++;
 }
 
-void pushBack(Node* head, int a) {
-	Node* element;
-	Node* tail = head->prev;
-	
-	element = malloc(sizeof(Node));
+void pushBack(List* list, int a) {
+	Node* element = malloc(sizeof(*element));
 
 	element->value = a;
-	element->next = head;
-	element->prev = tail;
+	element->next = NULL;
 
-	tail->next = element;
-	head->prev = element;
+	list->tail->next = element;
+	list->tail = element;
+	(list->size)++;
 }
 
-int popFront(Node* head) {
-	if (isEmpty(head))
+int popFront(List* list) {
+	if (isEmpty(list))
 		return -1;
-	int result = head->value;
+	Node* temp = list->head->next;
+	int result = list->head->value;
 	
-	Node* temp = head;
-	temp->prev->next = temp->next;
-	temp->next->prev = temp->prev;
-	
-	head = temp->next;
-	free(temp);
-	
-	return result;
-}
-
-int popBack(Node* head) {
-	if (isEmpty(head))
-		return -1;
-	Node* tail = head->prev;
-	int result = tail->value;
-
-	Node* temp = tail;
-	temp->prev->next = temp->next;
-	temp->next->prev = temp->prev;
-
-	free(temp);
+	free(list->head);
+	list->head = temp;
+	(list->size)--;
 
 	return result;
 }
 
-void printList(Node* head) {
+int popBack(List* list) {
+	if (isEmpty(list))
+		return -1;
 	Node* current;
-	for (current = head->next; current != head; current = current->next) {
+	for (current = list->head; current->next != list->tail; current = current->next);
+	
+	Node* temp = current;
+	int result = list->tail->value;
+
+	temp->next = NULL;
+	free(list->tail);
+	list->tail = temp;
+	(list->size)--;
+
+	return result;
+}
+
+void printList(List* list) {
+	Node* current;
+	for (current = list->head; current != NULL; current = current->next) {
 		printf("%i ", current->value);
 	}
 	printf("\n");
