@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "InsertionSort.h"
-#include "LinkedList.h"
+#include "algorithms/InsertionSort.h"
+#include "dataStructures/LinkedList.h"
 
 void print(int*, int n);
 
