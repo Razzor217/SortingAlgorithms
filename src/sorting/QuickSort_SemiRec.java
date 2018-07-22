@@ -49,7 +49,7 @@ public class QuickSort_SemiRec extends QuickSort {
                     quickSort(a, l, m-1, n);
                     l = m+1;
                 } else {
-                    quickSort(a, m+1, r);
+                    quickSort(a, m+1, r, n);
                     r = m-1;
                 }
             }
