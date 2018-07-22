@@ -6,6 +6,7 @@ import java.util.List;
 
 import sorting.Algorithm;
 import sorting.BeadSort;
+import sorting.BeadSort_Diff;
 import sorting.BeadSort_Horizontal;
 import sorting.HeapSort_Int;
 import sorting.InsertionSort;
@@ -19,30 +20,31 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-	    int n = 50000;
-	    int range = 100;
+	    int n = 5000000;
+	    int range = 2;
 		
 		int[] a = new int[n];
 		List<Integer> list = new LinkedList<Integer>();
 		
 		for (int i=0; i<n; i++) {
 			int elem = (int)(Math.random()*range+1);
-			a[i] = elem;
+			a[i] = elem + 100;
 			list.add(elem);
 		}
 		
 		Algorithm[] b = {
-	        new InsertionSort(a), 
-	        new MergeSort_AL(list),
-	        new QuickSort(a),
-	        new MergeSort_LL(list),
-	        new BeadSort(a),
+	        //new InsertionSort(a), 
+	        //new MergeSort_AL(list),
+	        //new QuickSort(a),
+	        //new MergeSort_LL(list),
+	        //new BeadSort(a),
 	        new BeadSort_Horizontal(a),
-		    new HeapSort_Int(a),
-		    new LSDRadixSort(a, 10, (int) Math.log10(range) + 1),
-		    new LSDRadixSort(a, 4, (int) Math.log10(range) + 1),
-		    new LSDRadixSort(a, 2, (int) Math.log10(range) + 1),
-		    new QuickSort_SemiRec(a, 10)
+		    //new HeapSort_Int(a),
+		    //new LSDRadixSort(a, 10, (int) Math.log10(range) + 1),
+		    //new LSDRadixSort(a, 4, (int) Math.log10(range) + 1),
+		    //new LSDRadixSort(a, 2, (int) Math.log10(range) + 1),
+		    //new QuickSort_SemiRec(a, 10),
+	        new BeadSort_Diff(a)
 	        };
 		
 		System.out.println("Sum of elements in array: " 
@@ -55,10 +57,11 @@ public class Main {
 		printAlgorithms(b);
 		
 		/*
-		int[] test = new int[] {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
-		int[] test2 = new int[] {9, 5, 6, 3, 4, 1, 2, 0, 11, 9};
-		System.out.println(Arrays.toString(test2));
-		QuickSort_SemiRec.quickSort(test2, 0, 9, 3);
+		int[] test = new int[] {9+10, 8+10, 7+10, 6+10, 5+10, 
+		        4+10, 3+10, 2+10, 1+10, 0+10};
+		int[] test2 = new int[] {9+5, 5+5, 6+5, 3+5, 4+5,
+		        1+5, 2+5, 0+5, 11+5, 9+5};
+		BeadSort_Diff.beadSort(test2);
 		System.out.println(Arrays.toString(test2));
 		*/
 		

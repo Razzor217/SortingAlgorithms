@@ -17,7 +17,7 @@ package sorting;
  */
 public class QuickSort extends Algorithm {
 
-    private int[] a;
+    protected int[] a;
     
     /**
      * Initializes quick sort with an integer array.
