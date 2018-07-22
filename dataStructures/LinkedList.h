@@ -15,8 +15,20 @@
  * 		- pushFront
  *		- pushBack
  * 		- popFront
- * The function popBack 
+ * The function popBack has complexity O(n).
+ * The first element 'head' is used as dummy-element.
  */
+
+struct node {
+	int value;
+	struct node* next;
+};
+
+struct list {
+	int size;
+	struct node* head;
+	struct node* tail;
+};
 
 /*
  * A singly linked list node, containing an integer value
@@ -31,10 +43,9 @@ typedef struct node Node;
 typedef struct list List;
 
 /*
- * Initializes the first node of the list and returns the list.
- * 		a 			- integer value of the first element
+ * Initializes the list with a dummy header and returns the list.
  */
-List* init(int a);
+List* init_list();
 
 /*
  * Returns the number of elements in the list.
@@ -93,8 +104,14 @@ int popBack(List* list);
 
 /*
  * Prints all elements of a given list.
-  *		list 		- Pointer to the list
+ *		list 		- Pointer to the list
  */
 void printList(List* list);
+
+/*
+ * Frees memory of all elements of the list.
+ *		list 		- Pointer to the list
+ */
+void destroy(List* list);
 
 #endif

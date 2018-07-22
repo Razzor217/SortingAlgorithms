@@ -1,22 +1,11 @@
 #include "LinkedList.h"
 
-struct node {
-	int value;
-	Node* next;
-};
-
-struct list {
-	int size;
-	Node* head;
-	Node* tail;
-};
-
-List* init(int a) {
+List* init_list() {
 	List* list = malloc(sizeof(*list));
 	Node* head = malloc(sizeof(*head));
-	head->value = a;
+	head->value = 0;
 	head->next = NULL;
-	list->size = 1;
+	list->size = 0;
 	list->head = head;
 	list->tail = head;
 
@@ -47,9 +36,9 @@ void pushFront(List* list, int a) {
 	Node* element = malloc(sizeof(*element));
 
 	element->value = a;
-	element->next = list->head;
+	element->next = list->head->next;
 
-	list->head = element;
+	list->head->next = element;
 	(list->size)++;
 }
 
@@ -67,11 +56,11 @@ void pushBack(List* list, int a) {
 int popFront(List* list) {
 	if (isEmpty(list))
 		return -1;
-	Node* temp = list->head->next;
-	int result = list->head->value;
+	Node* temp = list->head->next->next;
+	int result = list->head->next->value;
 	
-	free(list->head);
-	list->head = temp;
+	free(list->head->next);
+	list->head->next = temp;
 	(list->size)--;
 
 	return result;
@@ -96,8 +85,13 @@ int popBack(List* list) {
 
 void printList(List* list) {
 	Node* current;
-	for (current = list->head; current != NULL; current = current->next) {
+	for (current = list->head->next; current != NULL; current = current->next) {
 		printf("%i ", current->value);
 	}
 	printf("\n");
+}
+
+void destroy(List* list) {
+	while(!isEmpty(list))
+		popFront(list);
 }

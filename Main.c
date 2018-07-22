@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 #include "algorithms/InsertionSort.h"
+#include "algorithms/MergeSort.h"
 #include "dataStructures/LinkedList.h"
 
 void print(int*, int n);
@@ -11,71 +12,49 @@ int main() {
 	int n = 20;
 	int* a = calloc(n, sizeof(int));
 	int i;
-	List* list = init(n);
+	List* list = init_list();
 	// Create sample data
 	for (i=0; i<n; i++)
 		a[i] = n-i-1;
-	for (i=1; i<n; i++)
+	for (i=0; i<n; i++)
 		pushBack(list, n-i);
 
-	//print(a, n);
-	
-	printf("List:\n");
+	/* TEST LIST FUNCTIONALITY */
 	printList(list);
 
-	printf("----------------------------------------\n");
-	
+	printf("List size: %i\n", size(list));
+
 	popFront(list);
 	popFront(list);
 	popFront(list);
-	
-	printf("List:\n");
 	printList(list);
 
-	printf("----------------------------------------\n");
-
-	pushBack(list, 128);
-
-	printf("List:\n");
+	pushFront(list, 33);
 	printList(list);
 
-	printf("----------------------------------------\n");
-
-	pushFront(list, 128);
-
-	printf("List:\n");
+	pushBack(list, 33);
 	printList(list);
-	
-	printf("----------------------------------------\n");
 
 	popBack(list);
-
-	printf("List:\n");
 	printList(list);
-	
-	printf("----------------------------------------\n");
 
 	popFront(list);
-
-	printf("List:\n");
 	printList(list);
-	
-	printf("----------------------------------------\n");
 
 	pushFront(list, 18);
 	pushFront(list, 19);
 	pushFront(list, 20);
-
-	printf("List:\n");
 	printList(list);
 	
-	printf("----------------------------------------\n");
+	printf("------------------------\n");
 
-	/*
+	print(a, n);
 	if (!insertionSort(a, 0, n-1))
 		return EXIT_FAILURE;
 	print(a, n);
-	*/
+	
+	destroy(list);
+	free(list);
 	free(a);
 	return 0;
 }
