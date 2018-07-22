@@ -6,12 +6,12 @@ struct node {
 	Node* prev;
 };
 
-Node* init() {
+Node* init(int a) {
 	Node* head;
 	
 	head = malloc(sizeof(Node));
 	
-	head->value = 0;
+	head->value = a;
 	head->next = head;
 	head->prev = head;
 
@@ -20,7 +20,7 @@ Node* init() {
 
 int first(Node* head) {
 	if (!isEmpty(head))
-		return head->value;
+		return head->next->value;
 	return -1;
 }
 
@@ -31,7 +31,7 @@ int last(Node* head) {
 }
 
 int isEmpty(Node* head) {
-	if (head == NULL || head->next == NULL)
+	if (head == NULL)
 		return 1;
 	return 0;
 }
@@ -90,7 +90,6 @@ int popBack(Node* head) {
 	temp->prev->next = temp->next;
 	temp->next->prev = temp->prev;
 
-	head->prev = temp->prev;
 	free(temp);
 
 	return result;

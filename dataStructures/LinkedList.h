@@ -13,12 +13,13 @@ typedef struct node Node;
 
 /*
  * Initializes the first node of the list and returns it.
+ * 		a 			- integer value of the first element
  */
-Node* init(void);
+Node* init(int a);
 
 /*
  * Returns the value of the first element in the list.
- * 		head 		- Node representing the head of the list, a dummy-element
+ * 		head 		- Node representing the head of the list
  * 		Returns 	- (-1) if the list is empty
  */
 int first(Node* head);
