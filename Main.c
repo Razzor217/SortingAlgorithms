@@ -15,7 +15,7 @@ int main() {
 		a[i] = n-i-1;
 
 	print(a, n);
-	if (insertionSort(a, 0, n-1))
+	if (!insertionSort(a, 0, n-1))
 		return EXIT_FAILURE;
 	print(a, n);
 

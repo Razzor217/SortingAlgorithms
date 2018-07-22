@@ -11,5 +11,5 @@ int insertionSort(int* a, int l, int r) {
 		}
 		*(a+j) = e;
 	}
-	return 0;
+	return 1;
 }
