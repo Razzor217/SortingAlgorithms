@@ -1,0 +1,5 @@
+# all except .c and .h files
+/*
+!/*.c
+!/*.h
+!/.gitignore
