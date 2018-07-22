@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 #include "InsertionSort.h"
+#include "LinkedList.h"
 
 void print(int*, int n);
 

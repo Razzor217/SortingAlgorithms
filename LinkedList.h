@@ -3,12 +3,18 @@
 
 #include <stddef.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 /*
  * A simple list node, containing an integer value, 
  * a pointer to the previous node and a pointer to the next node in the list.
  */
 typedef struct node Node;
+
+/*
+ * Initializes the first node of the list and returns it.
+ */
+Node* init(void);
 
 /*
  * Returns the value of the first element in the list.
@@ -57,5 +63,11 @@ int popFront(Node* head);
  * 		Returns 	- (-1) if the list is empty.
  */
 int popBack(Node* head);
+
+
+/*
+ * Prints all elements of a given list.
+ */
+void printList(Node* head);
 
 #endif
