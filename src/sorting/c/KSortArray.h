@@ -1,6 +1,8 @@
 #ifndef KSortArray_H
 #define KSortArray_H
 
+#include <stdlib.h>
+
 /*
  * Implements a bucket sort on top of an integer array.
  *

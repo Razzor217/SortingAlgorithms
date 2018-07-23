@@ -6,6 +6,7 @@ void lsdRadixSort(int* a, int n, int B, int d) {
 	i = 0;
 	while (i<d) {
 		kSort(a, n, B, key);
+		i++;
 	}
 }
 
