@@ -11,17 +11,16 @@
  *
  * The resulting array is then refilled using the indices in the auxiliary 
  * arrax.
- * Note: kSort returns a pointer to a new array, i.e. memory is allocated and needs
- * to be freed afterwards.
- * Time complexity: {@code O(n+K)}
+ * This variant refills the original array at the end of the calculations 
+ * which is slower but more space efficient.
+ * Time complexity: O(n+K)
  *		a 			- The unsorted integer array
  * 		n 			- Length of the array
  *		K 			- The number of available buckets
- * 		(*f)		- A function which takes an integer and returns a key in the 
- * 					  range of {0,...,K-1}
- * 		Returns: 	- A pointer to the new sorted array
- *					- NULL if any key was not within range
+ * 		(*f)		- A function which takes two integers a and K and returns 
+ *					  key(a) in the range of {0,...,K-1}
+ * 	Aborts execution if a key value was not within range.
  */
-int* kSort(int* a, int n, int K, int (*f)(int));
+void kSort(int* a, int n, int K, int (*f)(int, int));
 
 #endif
