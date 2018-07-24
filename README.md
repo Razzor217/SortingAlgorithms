@@ -9,13 +9,13 @@ e.g. `HeapSort` which is built upon `BinaryHeap`. These data structures are loca
 `src/dataStructures`.  
 So far, the following algorithms have been implemented:  
 1. `Bead sort` (gravity sort, vertical, horizontal and difference variant)
-2. `Heap sort` (generic variant and integer variant)
+2. `Heap sort` (`Java`: generic variant and integer variant, `C`: integer variant)
 3. `Insertion sort` (`Java`, `C`)
 4. `Bucket sort` (`Java`: abstract, `C`)
 5. `LSD radix sort` (`Java`, `C`)
 6. `Merge sort` (`Java`, `C`: array list variant and linked list variant)
-7. `Quick sort` (`Java`, `C`: normal and semi recursive variant which uses insertion sort for small 
-list sizes)
+7. `Quick sort` (`Java`, `C`: normal and semi recursive variant which uses insertion  
+sort for small list sizes)
 
 If not specified differently, these algorithms work on arrays / lists of integers to 
 increase performance.
