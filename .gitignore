@@ -70,3 +70,9 @@ doc/
 
 # Mac
 .DS_Store
+
+# .o Files
+*.o
+
+# Unignore makefiles
+!makefile
