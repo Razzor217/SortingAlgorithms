@@ -1,7 +1,7 @@
 #ifndef MergeSort_h
 #define MergeSort_h
 
-#include "../dataStructures/LinkedList.h"
+#include "../../dataStructures/c/LinkedList.h"
 
 List* mergeSort(List* list);
 
