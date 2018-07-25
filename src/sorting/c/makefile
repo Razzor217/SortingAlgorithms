@@ -1,5 +1,6 @@
 OBJ = test.o QuickSort_SemiRec.o QuickSort.o KSortArray.o \
-	LSDRadixSort.o InsertionSort.o
+	LSDRadixSort.o InsertionSort.o HeapSort.o BinaryHeap.o
+PATH = ../../dataStructures/c/
 
 default: test
 
@@ -17,6 +18,12 @@ LSDRadixSort.o: LSDRadixSort.c LSDRadixSort.h KSortArray.h
 
 InsertionSort.o: InsertionSort.c InsertionSort.h
 	gcc -c InsertionSort.c
+
+BinaryHeap.o: $(PATH)BinaryHeap.c $(PATH)BinaryHeap.h
+	gcc -c ../../dataStructures/c/BinaryHeap.c
+
+HeapSort.o: HeapSort.c HeapSort.h $(PATH)BinaryHeap.h
+	gcc -c HeapSort.c
 
 test.o: test.c QuickSort.h QuickSort_SemiRec.h LSDRadixSort.h
 	gcc -c test.c
