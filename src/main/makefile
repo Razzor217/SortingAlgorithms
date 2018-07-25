@@ -15,7 +15,7 @@ HeapSort.o: $(PATH_SORT)HeapSort.c $(PATH_SORT)HeapSort.h $(PATH_DATA)BinaryHeap
 
 InsertionSort.o: $(PATH_SORT)InsertionSort.c $(PATH_SORT)InsertionSort.h
 	gcc -c $(PATH_SORT)InsertionSort.c
-	
+
 KSortArray.o: $(PATH_SORT)KSortArray.c $(PATH_SORT)KSortArray.h
 	gcc -c $(PATH_SORT)KSortArray.c
 
@@ -42,6 +42,7 @@ Main.o: Main.c $(PATH_SORT)HeapSort.h $(PATH_SORT)InsertionSort.h \
 	gcc -c Main.c
 
 main: $(OBJ)
+	gcc -o main $(OBJ)
 
 clean: 
 	rm -rf main $(OBJ)
